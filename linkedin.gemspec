@@ -2,6 +2,7 @@
 require File.expand_path('../lib/linked_in/version', __FILE__)
 
 Gem::Specification.new do |gem|
+  gem.add_dependency 'activesupport', '>= 2.3.0'
   gem.add_dependency 'hashie', '~> 1.1.0'
   gem.add_dependency 'multi_json', '~> 1.0.3'
   gem.add_dependency 'oauth', '~> 0.4.5'

@@ -1,4 +1,10 @@
 require 'oauth'
+require 'active_support'
+
+if !Hash.respond_to?(:with_indifferent_access) # Active Support 2.x and 3.x
+  require 'active_support/core_ext/object/to_query'
+  require 'active_support/core_ext/hash/slice'
+end
 
 module LinkedIn
 

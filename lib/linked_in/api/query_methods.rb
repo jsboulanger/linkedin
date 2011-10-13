@@ -29,7 +29,14 @@ module LinkedIn
             path +=":(#{fields.map{ |f| f.to_s.gsub("_","-") }.join(',')})"
           end
 
+          query_params = extract_query_params(options)
+          path += "?#{query_params.to_query}" if query_params.size > 0
+
           Mash.from_json(get(path))
+        end
+
+        def extract_query_params(options)
+          options.slice(:start, :count, :modified, :"modified-since")
         end
 
         def person_path(options)

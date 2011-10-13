@@ -29,4 +29,8 @@ describe LinkedIn::Api do
     client.network_updates.should be_an_instance_of(LinkedIn::Mash)
   end
 
+  it "should pass extra options as query string parameter to the api" do
+    stub_request(:get, "https://api.linkedin.com/v1/people/~/connections?start=10").to_return(:body => "{}")
+    client.connections(:start => 10)
+  end
 end
